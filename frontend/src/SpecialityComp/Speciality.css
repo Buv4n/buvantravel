@@ -1,0 +1,43 @@
+.travel-support .support-heading h2{
+    margin-bottom: 10px;
+}
+
+.common-support {
+    overflow: hidden;
+}
+.common-support:hover .support-img {
+    transform: scale(1.22);
+}
+.common-support .support-img,
+.common-support:hover .support-img {
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.ofl-hidden {
+    overflow: hidden;
+}
+.common-support h4 {
+    margin-bottom: 5px;
+    margin-top: 30px;
+}
+.common-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: -86px;
+}
+
+.common-icon svg {
+    width: 50px;
+    height: 50px;
+    color: var(--primary-color);
+}

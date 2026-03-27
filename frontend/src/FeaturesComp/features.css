@@ -1,0 +1,14 @@
+section.features {
+    background-color: var(--primary-color);
+}
+p.text-sm {
+    font-size: 16px;
+}
+span.luci-icon svg {
+    width: 60px;
+    height: 60px;
+}
+
+.mt-0 {
+    margin-bottom: 0px;
+}

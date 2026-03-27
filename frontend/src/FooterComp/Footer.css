@@ -1,0 +1,32 @@
+.footer-logo {
+    padding-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+    width: 100%;
+    object-fit: contain;
+    height: 70px;
+    margin-left: -14px;
+    margin-right: auto;
+}
+.footer-main .grid {
+    padding-bottom: 25px;
+}
+.footer-main .grid span a {
+    color: var(--white-color);
+    font-weight: 700;
+}
+.footer-main .grid span {
+    margin-bottom: 10px;
+}
+@media(min-width: 768px){
+    .footer-main {
+    padding-top: 80px;
+}
+}
+
+@media(max-width: 767px){
+    .footer-main {
+    padding-top: 60px;
+}
+}

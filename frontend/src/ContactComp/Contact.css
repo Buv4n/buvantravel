@@ -1,0 +1,73 @@
+.contact-form {
+    padding: 40px 30px;
+    background-color: var(--white-color);
+}
+span.icon-text svg {
+    width: 45px;
+    height: 45px;
+}
+form.customer-info {
+    margin-top: 50px;
+}
+.contact-form h2 {
+    margin-bottom: 8px;
+}
+span.icon-text strong {
+    line-height: 1.8;
+    margin-left: 10px;
+    font-size: 24px;
+}
+span.icon-text {
+    margin-bottom: 10px;
+}
+
+.tq-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tq-tile svg.lucide.lucide-star {
+    width: 45px;
+    height: 45px;
+    fill: #00b32b;
+    color: #00b32b;
+    margin-bottom: 7px;
+}
+.contact-form button {
+    cursor: pointer;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--white-color);
+}
+
+h2.text-3xl.font-bold.mb-6 {
+    margin-bottom: 8px;
+}
+
+.space-y-4.text-lg {
+    padding-top: 30px;
+}
+
+body.hubspot.ui-app.hubspot-disable-focus-styles {
+    display: none !important;
+}
+div#e2a0227e-0cc3-479f-9299-04f1be80310d-3025062135574 span {
+    display: none;
+}
+
+.contact-form button.tertiary-button {
+    border-radius: 4px;
+}

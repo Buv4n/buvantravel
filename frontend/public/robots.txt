@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://buvantravel.com/sitemap.xml

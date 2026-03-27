@@ -1,0 +1,19 @@
+.hero-content {
+    max-width: 990px;
+}
+.hero-btn button {
+    padding: 0px;
+}
+.hero-btn {
+    margin-top: 60px;
+}
+@media (min-width: 768px) {
+    .home_hero {
+    padding: 220px 0px 150px;
+}
+}
+@media (max-width: 767px) {
+    .home_hero {
+    padding: 180px 0px 120px;
+}
+}

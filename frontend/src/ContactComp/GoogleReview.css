@@ -1,0 +1,42 @@
+.review-slider .heading-text{
+    margin-bottom: 10px;
+}
+.mb-10{
+margin-bottom: 10px;
+}
+.rvw-logo{
+    max-width: 160px;
+}
+.rev-btn a {
+color: var(--white-color);
+background-color: var(--primary-color);
+padding: 12px 20px;
+border-radius: 4px;
+transition: .3s all ease-in-out;
+-webkit-transition: .3s all ease-in-out;
+-moz-transition: .3s all ease-in-out;
+-ms-transition: .3s all ease-in-out;
+-o-transition: .3s all ease-in-out;
+}
+
+.rev-btn a:hover {
+color: var(--white-color);
+background-color: #000dff;
+transition: .3s all ease-in-out;
+-webkit-transition: .3s all ease-in-out;
+-moz-transition: .3s all ease-in-out;
+-ms-transition: .3s all ease-in-out;
+-o-transition: .3s all ease-in-out;
+}
+h4.condidate-name{
+    margin-bottom: 5px;
+}
+
+@media(max-width: 767px){
+body .rev-btn a {
+padding: 12px 12px;
+font-size: 12px;
+}
+
+}
+
