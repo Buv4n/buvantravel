@@ -189,10 +189,7 @@ export const Destinations = () => {
                     }}
                     disabled={!isFormValid}
                     className={`flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white rounded-[35px]
-                  ${isFormValid
-                        ? "bg-[#25D366] cursor-pointer"
-                        : "bg-gray-400 cursor-not-allowed"
-                      }`}
+                  ${isFormValid ? "bg-green-500 hover:bg-green-600" : " bg-green-400 cursor-not-allowed"}`}
                   >
                     <Phone size={20} /> Send via WhatsApp
                   </button>
