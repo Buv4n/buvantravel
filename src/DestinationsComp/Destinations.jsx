@@ -16,6 +16,8 @@ import Nepal from '../assets/Images/Nepal.jpg'
 import './destinations.css'
 
 
+
+
 export const Destinations = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [formData, setFormData] = useState({ name: '', month: '', phone: '', email: "", numberofpackage: "" });
@@ -23,6 +25,13 @@ export const Destinations = () => {
   const WHATSAPP_NUMBER = "+60123488014";
   const OWNER_EMAIL = "hello@buvantravel.com";
 
+  const [emailError, setEmailError] = useState("");
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const isFormValid = formData.name && formData.phone && formData.email && validateEmail(formData.email);
 
   const packages = [
     { id: 1, name: "Arrupadai, Panchabootham, Tirupathi", desc: " Arrupadai + Panchabootham + Tirupathi 12D & 11N Tour 14 June - 25 June 2026.", img: SouthIndia },
@@ -36,20 +45,18 @@ export const Destinations = () => {
   ];
 
   const sendWhatsApp = () => {
-    const text = `New Inquiry – Buvan Travel\n\nPackage: ${selectedPackage.name}\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nPackage: ${formData.numberofpackage}\n\nI would like to discuss the itinerary.`;  //\nPlanned Travel Date: ${formData.month}
+    const text = `New Inquiry – Buvan Travel\n\nPackage: ${selectedPackage.name}\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nMember: ${formData.numberofpackage}\n\nI would like to discuss the itinerary.`;  //\nPlanned Travel Date: ${formData.month}
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   const sendEmail = () => {
     const subject = `New Inquiry – Buvan Travel: ${selectedPackage.name}`;
-    const body = `Hello Buvan Travel,\n\nI am interested in ${selectedPackage.name}.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nPackage: ${formData.numberofpackage}`; //\nPlanned Travel Date: ${formData.month}
+    const body = `Hello Buvan Travel,\n\nI am interested in ${selectedPackage.name}.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nMember: ${formData.numberofpackage}`; //\nPlanned Travel Date: ${formData.month}
     window.location.href = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
 
-
   const today = new Date().toISOString().split('T')[0];
-
   return (
     <>
       <section id="destinations" className="py-24 bg-slate-50 md:py-20">
@@ -81,7 +88,6 @@ export const Destinations = () => {
           </div>
         </div>
       </section>
-
       {/* --- CONTACT MODAL --- */}
       <AnimatePresence>
         {selectedPackage && (
@@ -100,17 +106,43 @@ export const Destinations = () => {
 
                 <div className="relative">
                   <Phone size={18} className="absolute left-4 top-4 text-gray-400" />
-                  <input type="text" placeholder="Your Phone No" className="w-full pl-10 pr-2 py-4  md:pl-12 md:pr-4 md:py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-orange-500" onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                  <input type="numeric" placeholder="Your Phone No" className="w-full pl-10 pr-2 py-4  md:pl-12 md:pr-4 md:py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-orange-500" onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
                 </div>
+
+                {/* <div className="relative">
+                  <Mail size={18} className="absolute left-4 top-4 text-gray-400" />
+                  <input type="text" placeholder="Enter Your Email" className="w-full pl-10 pr-2 py-4  md:pl-12 md:pr-4 md:py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-orange-500" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                </div> */}
 
                 <div className="relative">
                   <Mail size={18} className="absolute left-4 top-4 text-gray-400" />
-                  <input type="text" placeholder="Enter Your Email" className="w-full pl-10 pr-2 py-4  md:pl-12 md:pr-4 md:py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-orange-500" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                  <input
+                    type="email"
+                    placeholder="Enter Your Email"
+                    className={`w-full pl-10 pr-2 py-4 md:pl-12 md:pr-4 md:py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 
+                     ${emailError ? "focus:ring-red-500" : "focus:ring-orange-500"}`}
+                    value={formData.email || ""}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setFormData({ ...formData, email: value });
+                      if (!value) {
+                        setEmailError("Email is required");
+                      } else if (!validateEmail(value)) {
+                        setEmailError("Enter a valid email");
+                      } else {
+                        setEmailError("");
+                      }
+                    }}
+                  />
                 </div>
+                {/* Error Message */}
+                {emailError && (
+                  <p className="text-red-500 text-sm mt-1">{emailError}</p>
+                )}
 
                 <div className="relative">
                   <Calculator size={18} className="absolute left-4 top-4 text-gray-400" />
-                  <input type="tel" inputMode="numeric"  pattern="[0-9]*"
+                  <input type="tel" inputMode="numeric" pattern="[0-9]*"
                     placeholder="Number Of Tourist"
                     className="w-full pl-10 pr-2 py-4  md:pl-12 md:pr-4 md:py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-orange-500"
                     onChange={(e) => {
@@ -148,28 +180,36 @@ export const Destinations = () => {
                 {/* 3. Updated Button Validation */}
                 <div className="pt-6 flex flex-col gap-3">
                   <button
-                    onClick={sendWhatsApp}
-                    // Button only enables if name exists AND date is today or later
-                    disabled={!formData.name || !formData.email || !formData.phone} 
-  //                     className="cursor-pointer flex items-center justify-center gap-3 
-  // bg-[#25D366] text-white py-[15px] text-sm font-medium 
-  // md:py-4 md:font-bold md:text-base 
-  // disabled:opacity-40 disabled:cursor-not-allowed 
-  // disabled:bg-[#25D366] 
-  // transition-all"
-
-        className="whatsapp-btn flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white"
-
-                    style={{ borderRadius: '35px' }} 
+                    onClick={() => {
+                      if (!validateEmail(formData.email)) {
+                        setEmailError("⚠️ Please enter a valid email");    
+                        return;
+                      }
+                      sendWhatsApp();
+                    }}
+                    disabled={!isFormValid}
+                    className={`flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white rounded-[35px]
+                  ${isFormValid
+                        ? "bg-[#25D366] cursor-pointer"
+                        : "bg-gray-400 cursor-not-allowed"
+                      }`}
                   >
                     <Phone size={20} /> Send via WhatsApp
                   </button>
 
+                  {/* Warning Message */}
+                  {!validateEmail(formData.email) && formData.email && (
+                    <p className="text-red-500 text-sm d-none">
+                      ⚠️ Please enter a valid email before submitting
+                    </p>
+                  )}
+
                   <button
                     onClick={sendEmail}
-                    disabled={!formData.name || !formData.email ||  !formData.phone || formData.phone < today}
-                    className="cursor-pointer flex items-center justify-center gap-3 bg-slate-900 text-white py-[15px] text-sm font-medium md:py-4 md:font-bold md:text-base disabled:opacity-40 disabled:cursor-not-allowed  transition-all"
-                    style={{ borderRadius: '35px' }}  
+                    disabled={!formData.name || !formData.email || !formData.phone || formData.phone < today}
+                    // className="cursor-pointer flex items-center justify-center gap-3 bg-slate-900 text-white py-[15px] text-sm font-medium md:py-4 md:font-bold md:text-base disabled:opacity-40 disabled:cursor-not-allowed  transition-all"
+                    className="email-btn flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white"
+                    style={{ borderRadius: '35px' }}
                   >
                     <Mail size={20} /> Send via Email
                   </button>

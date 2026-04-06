@@ -28,12 +28,26 @@
   cursor: not-allowed;
 }
 
+.email-btn{
+  background-color: #EA4335;
+  cursor: pointer;
+  opacity: 1;
+}
+.email-btn:disabled {
+  background-color: #EA4335; /* keep same color if you want */
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
 /* Optional: Active click effect */
+.email-btn:active:not(:disabled),
 .whatsapp-btn:active:not(:disabled) {
   transform: scale(0.97);
 }
 
-/* Fix for Mobile Safari */
+/* Fix for Mobile Safari
+.email-btn:disabled,
 .whatsapp-btn:disabled {
   -webkit-appearance: none;
-}
+} */
