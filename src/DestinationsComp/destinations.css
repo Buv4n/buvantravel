@@ -9,7 +9,6 @@
 .space-y-4 input {
     outline: none;
 }
-.calendar-text {
-
-
+.d-none{
+    display: none;
 }
