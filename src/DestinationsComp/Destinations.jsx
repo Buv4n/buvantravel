@@ -151,7 +151,12 @@ export const Destinations = () => {
                     onClick={sendWhatsApp}
                     // Button only enables if name exists AND date is today or later
                     disabled={!formData.name || !formData.email || !formData.phone} 
-                    className="cursor-pointer flex items-center justify-center gap-3 bg-[#25D366] text-white py-[15px] text-sm font-medium md:py-4 md:font-bold md:text-base  disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                      className="cursor-pointer flex items-center justify-center gap-3 
+  bg-[#25D366] text-white py-[15px] text-sm font-medium 
+  md:py-4 md:font-bold md:text-base 
+  disabled:opacity-40 disabled:cursor-not-allowed 
+  disabled:bg-[#25D366] 
+  transition-all"
                     style={{ borderRadius: '35px' }} 
                   >
                     <Phone size={20} /> Send via WhatsApp
