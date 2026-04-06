@@ -106,7 +106,7 @@ export const Destinations = () => {
 
                 <div className="relative">
                   <Phone size={18} className="absolute left-4 top-4 text-gray-400" />
-                  <input type="numeric" placeholder="Your Phone No" className="w-full pl-10 pr-2 py-4  md:pl-12 md:pr-4 md:py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-orange-500" onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                  <input inputMode="numeric" pattern="[0-9]*" placeholder="Your Phone No" className="w-full pl-10 pr-2 py-4  md:pl-12 md:pr-4 md:py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-orange-500" onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
                 </div>
 
                 {/* <div className="relative">
@@ -189,7 +189,7 @@ export const Destinations = () => {
                     }}
                     disabled={!isFormValid}
                     className={`flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white rounded-[35px]
-                  ${isFormValid ? "bg-green-500 hover:bg-green-600" : " bg-green-400 cursor-not-allowed"}`}
+                  ${isFormValid ? "bg-green-500  active:scale-95 hover:bg-green-600" : " bg-green-400 cursor-not-allowed"}`}
                   >
                     <Phone size={20} /> Send via WhatsApp
                   </button>
