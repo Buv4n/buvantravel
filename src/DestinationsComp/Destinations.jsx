@@ -163,10 +163,10 @@ export const Destinations = () => {
                       sendWhatsApp();
                     }}
                     disabled={!isFormValid}
-                    className={`flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white rounded-[35px]
+                    className={` whatsapp-btn flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white rounded-[35px]
                   ${isFormValid 
-                     ? "bg-green-500 text-white hover:bg-green-600 active:scale-95 cursor-pointer"
-                     : "bg-green-200 text-gray-400 border border-green-200 cursor-not-allowed"     }`}
+                     ? "cursor-pointer"
+                     : "cursor-not-allowed"}`}
                   >
                     <Phone size={20} /> Send via WhatsApp
                   </button>
