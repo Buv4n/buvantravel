@@ -152,31 +152,6 @@ export const Destinations = () => {
                   />
                 </div>
 
-
-
-                {/* <div className="relative d-none" >
-                  <Calendar size={18} className="absolute left-4 top-4 text-gray-400 z-10" />
-                  <input
-                    type="date"
-                    // This is the key: prevents selecting any date before today
-                    min={today}
-                    className="w-full pl-12 pr-4 py-4 bg-gray-50 rounded-2xl border-none focus:ring-2 focus:ring-orange-500 appearance-none cursor-pointer"
-                    value={formData.month} // renamed to match your state, though 'date' might be clearer
-                    onChange={(e) => {
-                      const selected = e.target.value;
-                      // Secondary JS validation check
-                      if (selected >= today) {
-                        setFormData({ ...formData, month: selected });
-                      } else {
-                        alert("Please select a future date.");
-                      }
-                    }}
-                  />
-                  <span className="absolute right-4 top-4 text-[10px] text-gray-400 pointer-events-none uppercase font-bold calendar-text">
-                    <ChevronDown />
-                  </span>
-                </div> */}
-
                 {/* 3. Updated Button Validation */}
                 <div className="pt-6 flex flex-col gap-3">
                   <button
@@ -189,7 +164,9 @@ export const Destinations = () => {
                     }}
                     disabled={!isFormValid}
                     className={`flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white rounded-[35px]
-                  ${isFormValid ? "bg-green-500  active:scale-95 hover:bg-green-600" : " bg-green-400 cursor-not-allowed"}`}
+                  ${isFormValid 
+                     ? "bg-green-500 text-white hover:bg-green-600 active:scale-95 cursor-pointer"
+                     : "bg-green-200 text-gray-400 border border-green-200 cursor-not-allowed"     }`}
                   >
                     <Phone size={20} /> Send via WhatsApp
                   </button>
