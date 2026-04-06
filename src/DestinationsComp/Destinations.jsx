@@ -154,22 +154,31 @@ export const Destinations = () => {
 
                 {/* 3. Updated Button Validation */}
                 <div className="pt-6 flex flex-col gap-3">
-                  <button
-                    onClick={() => {
-                      if (!validateEmail(formData.email)) {
-                        setEmailError("⚠️ Please enter a valid email");    
-                        return;
-                      }
-                      sendWhatsApp();
-                    }}
-                    disabled={!isFormValid}
-                    className={` whatsapp-btn flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all text-white rounded-[35px]
-                  ${isFormValid 
-                     ? "cursor-pointer"
-                     : "cursor-not-allowed"}`}
-                  >
-                    <Phone size={20} /> Send via WhatsApp
-                  </button>
+                 <button
+  onClick={() => {
+    if (!validateEmail(formData.email)) {
+      setEmailError("⚠️ Please enter a valid email");
+      return;
+    }
+    sendWhatsApp();
+  }}
+  disabled={!isFormValid}
+  className={`whatsapp-btn flex items-center justify-center gap-3 py-[15px] text-sm md:py-4 md:text-base transition-all rounded-[35px]
+    
+    ${
+      isFormValid
+        ? "bg-green-500 text-white hover:bg-green-600 active:scale-95 cursor-pointer"
+        : "bg-transparent text-gray-400 border border-gray-300 cursor-not-allowed"
+    }
+
+    disabled:!bg-green-300
+    disabled:!text-white
+    disabled:!border-green-300
+    disabled:opacity-100
+  `}
+>
+  <Phone size={20} /> Send via WhatsApp
+</button>
 
                   {/* Warning Message */}
                   {!validateEmail(formData.email) && formData.email && (
