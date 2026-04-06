@@ -151,8 +151,8 @@ export const Destinations = () => {
                     onClick={sendWhatsApp}
                     // Button only enables if name exists AND date is today or later
                     // disabled={!formData.name || !formData.month || formData.month < today}
-                    className="cursor-pointer flex items-center justify-center gap-3 bg-[#25D366] text-white py-4 font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
-                    style={{ borderRadius: '35px' }}
+                    className="cursor-pointer flex items-center justify-center gap-3 bg-[#25D366] text-white py-4 font-bold  transition-all"
+                    style={{ borderRadius: '35px' }} //disabled:opacity-40 disabled:cursor-not-allowed
                   >
                     <Phone size={20} /> Send via WhatsApp
                   </button>
@@ -160,8 +160,8 @@ export const Destinations = () => {
                   <button
                     onClick={sendEmail}
                     // disabled={!formData.name || !formData.month || formData.month < today}
-                    className="cursor-pointer flex items-center justify-center gap-3 bg-slate-900 text-white py-4 font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
-                    style={{ borderRadius: '35px' }}
+                    className="cursor-pointer flex items-center justify-center gap-3 bg-slate-900 text-white py-4  transition-all"
+                    style={{ borderRadius: '35px' }}   //font-bold disabled:opacity-40 disabled:cursor-not-allowed
                   >
                     <Mail size={20} /> Send via Email
                   </button>
