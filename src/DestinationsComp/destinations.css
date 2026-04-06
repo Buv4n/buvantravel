@@ -12,3 +12,28 @@
 .d-none{
     display: none;
 }
+/* Buttons style */
+
+/* Default (Active Button) */
+.whatsapp-btn {
+  background-color: #25D366;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Disabled State */
+.whatsapp-btn:disabled {
+  background-color: #25D366; /* keep same color if you want */
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Optional: Active click effect */
+.whatsapp-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Fix for Mobile Safari */
+.whatsapp-btn:disabled {
+  -webkit-appearance: none;
+}
